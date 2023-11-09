@@ -1,0 +1,10 @@
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\bin\Debug\ClackosProj2.exe.config
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\bin\Debug\ClackosProj2.exe
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\bin\Debug\ClackosProj2.pdb
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.csproj.AssemblyReference.cache
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.Properties.Resources.resources
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.csproj.GenerateResource.cache
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.csproj.CoreCompileInputs.cache
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.exe
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.pdb
+C:\Users\maxpi\OneDrive\Desktop\Ynov\ClackosProj2\ClackosProj2\obj\Debug\ClackosProj2.Form1.resources
