@@ -16,5 +16,15 @@ namespace ClackosProj2
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine();
+        }
     }
 }

@@ -37,9 +37,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 39);
             this.label1.TabIndex = 0;
@@ -60,19 +61,21 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(493, 13);
+            this.textBox1.Location = new System.Drawing.Point(502, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 26);
+            this.textBox1.Size = new System.Drawing.Size(201, 26);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(696, 13);
+            this.searchBtn.Location = new System.Drawing.Point(709, 12);
             this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(75, 29);
+            this.searchBtn.Size = new System.Drawing.Size(79, 29);
             this.searchBtn.TabIndex = 2;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // Form1
             // 
