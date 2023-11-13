@@ -30,34 +30,50 @@ namespace ClackosProj2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Create a new TextBox
-            TextBox dynamicTextBox = new TextBox();
+            int textBoxesPerRow = 5; // Change this to the desired number of TextBoxes per row
+            int textBoxWidth = 100;
+            int textBoxHeight = 30;
+            int paddingX = 10;
+            int paddingY = 10;
 
-            // Set properties for the TextBox
-            dynamicTextBox.Name = "dynamicTextBox" + textBoxCount; // Make the name unique
-            dynamicTextBox.Text = "Generated TextBox";
-            dynamicTextBox.Width = 100;
-            dynamicTextBox.BackColor = Color.Red;
+            for (int i = 0; i < 20; i++) // Change '20' to the desired total number of TextBoxes
+            {
+                // Create a new TextBox
+                TextBox dynamicTextBox = new TextBox();
 
-            // Set the location based on the count of TextBoxes
-            int x = (textBoxCount % 3) * 110; // Change '3' to the number of TextBoxes per row
-            int y = (textBoxCount / 3) * 30; // Change '30' to the height of the TextBox plus some padding
-            dynamicTextBox.Location = new Point(x, y);
+                // Set properties for the TextBox
+                dynamicTextBox.Name = "dynamicTextBox" + textBoxCount;
+                dynamicTextBox.Text = "Generated TextBox";
+                dynamicTextBox.Width = textBoxWidth;
+                dynamicTextBox.BackColor = Color.Red;
 
-            // Add the TextBox to the form's controls
-            listePrisonnier.Controls.Add(dynamicTextBox);
+                // Set the location based on the count of TextBoxes
+                int row = textBoxCount / textBoxesPerRow;
+                int col = textBoxCount % textBoxesPerRow;
+                int x = col * (textBoxWidth + paddingX);
+                int y = row * (textBoxHeight + paddingY);
+                dynamicTextBox.Location = new Point(x, y);
 
-            // Optionally, you can handle events for the dynamically generated control
-            dynamicTextBox.TextChanged += DynamicTextBox_TextChanged;
-            Console.WriteLine("created new textbox");
+                // Add the TextBox to the form's controls
+                listePrisonnier.Controls.Add(dynamicTextBox);
 
-            textBoxCount++; // Increment the count
+                // Optionally, you can handle events for the dynamically generated control
+                dynamicTextBox.TextChanged += DynamicTextBox_TextChanged;
+
+                Console.WriteLine("created new textbox");
+                textBoxCount++; // Increment the count
+            }
         }
 
         private void DynamicTextBox_TextChanged(object sender, EventArgs e)
         {
             // Handle the TextChanged event for the dynamically generated TextBox
             // Add your custom logic here
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

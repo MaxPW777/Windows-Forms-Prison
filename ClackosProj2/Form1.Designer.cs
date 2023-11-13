@@ -60,6 +60,7 @@
             this.header.Controls.Add(this.title);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
+            this.header.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(800, 48);
             this.header.TabIndex = 1;
@@ -84,17 +85,21 @@
             // 
             // filterPanel
             // 
+            this.filterPanel.AutoSize = true;
+            this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterPanel.Controls.Add(this.button1);
-            this.filterPanel.Location = new System.Drawing.Point(10, 54);
+            this.filterPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.filterPanel.Location = new System.Drawing.Point(0, 48);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(6);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(250, 384);
+            this.filterPanel.Size = new System.Drawing.Size(204, 402);
             this.filterPanel.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(74, 44);
+            this.button1.Location = new System.Drawing.Point(7, 338);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 51);
+            this.button1.Size = new System.Drawing.Size(192, 51);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -113,9 +118,13 @@
             // 
             // listePrisonnier
             // 
-            this.listePrisonnier.Location = new System.Drawing.Point(267, 55);
+            this.listePrisonnier.AutoScroll = true;
+            this.listePrisonnier.AutoSize = true;
+            this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listePrisonnier.Location = new System.Drawing.Point(204, 48);
             this.listePrisonnier.Name = "listePrisonnier";
-            this.listePrisonnier.Size = new System.Drawing.Size(521, 383);
+            this.listePrisonnier.Size = new System.Drawing.Size(596, 402);
             this.listePrisonnier.TabIndex = 3;
             // 
             // Form1
@@ -128,6 +137,7 @@
             this.Controls.Add(this.header);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             this.filterPanel.ResumeLayout(false);
