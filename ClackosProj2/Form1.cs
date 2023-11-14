@@ -75,7 +75,7 @@ namespace ClackosProj2
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine();
+            Console.WriteLine("Searching");
         }
         private int textBoxCount = 0; // Add this field to your class
 
@@ -111,14 +111,51 @@ namespace ClackosProj2
                 listePrisonnier.Controls.Add(textBox);
             }
         }
-
-        private void DynamicTextBox_TextChanged(object sender, EventArgs e)
+            private void DynamicTextBox_TextChanged(object sender, EventArgs e)
         {
             // Handle the TextChanged event for the dynamically generated TextBox
             // Add your custom logic here
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detailsPrisonnier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void afficherPrisonnier_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Afficher prisonnier");
+            detailsPrisonnier.Visible = !detailsPrisonnier.Visible;
+            pictureBoxPhoto.ImageLocation = "./"+prisonniers[0].Photo;
+            Console.WriteLine(prisonniers[0].Photo);
+            detailNom.Text = prisonniers[0].Nom;
+            detailPrenom.Text = prisonniers[0].Prenom;
+            detailID.Text = prisonniers[0].ID.ToString();
+            
+
+        }
+
+        private void Nom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detailsPrisonnier_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
