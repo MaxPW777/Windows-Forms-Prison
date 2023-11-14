@@ -78,7 +78,7 @@ namespace ClackosProj2
             Console.WriteLine();
         }
 
-        private void CreateItem(string imagePath, string labelText)
+        private void CreateItem(Prisonnier prisonnier)
         {
             int itemWidth = 150;
             int itemHeight = 200; // Adjust as needed based on image and label height
@@ -95,7 +95,11 @@ namespace ClackosProj2
             // Create a new PictureBox (ImageBox)
             PictureBox imageBox = new PictureBox();
             imageBox.Name = "imageBox" + labelCount;
+
+            string imagePath = prisonnier.Photo.ToLower();
+            imagePath = imagePath.Replace("photo_", "images/");
             imageBox.ImageLocation = imagePath;
+
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.BorderStyle = BorderStyle.FixedSingle;
             imageBox.Size = new Size(150, 150); // Set the image size
@@ -103,7 +107,7 @@ namespace ClackosProj2
             // Create a new Label
             Label label = new Label();
             label.Name = "label" + labelCount;
-            label.Text = labelText;
+            label.Text = prisonnier.Nom + " " + prisonnier.Prenom;
             label.TextAlign = ContentAlignment.MiddleCenter;
             label.BorderStyle = BorderStyle.FixedSingle;
             label.Size = new Size(itemWidth, 50); // Set label height
@@ -138,14 +142,8 @@ namespace ClackosProj2
         private void button1_Click(object sender, EventArgs e)
         {
 
-            foreach (Prisonnier prisonnier in prisonniers)
-            {
-                string imagePath = prisonnier.Photo.ToLower();
-                imagePath = imagePath.Replace("photo_", "");
-
-                string name = prisonnier.Prenom + " " + prisonnier.Nom;
-
-                CreateItem(imagePath, name);
+            foreach (Prisonnier prisonnier in prisonniers){
+                CreateItem(prisonnier);
             }
         }
 
