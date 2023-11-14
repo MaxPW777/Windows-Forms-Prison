@@ -97,7 +97,6 @@ namespace ClackosProj2
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(201, 26);
             this.searchBox.TabIndex = 1;
-            this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // filterPanel
             // 

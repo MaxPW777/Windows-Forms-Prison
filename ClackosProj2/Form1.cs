@@ -17,7 +17,7 @@ namespace ClackosProj2
     public partial class Form1 : Form
     {
 
-        public List<Prisonnier> prisonnierListe = new List<Prisonnier>();
+        public List<Prisonnier> prisonniers = new List<Prisonnier>();
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
         public Form1()

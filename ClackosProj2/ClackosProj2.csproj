@@ -98,7 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Prisonnier.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
