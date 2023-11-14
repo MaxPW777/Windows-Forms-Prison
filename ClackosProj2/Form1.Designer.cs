@@ -141,7 +141,6 @@ namespace ClackosProj2
             this.Controls.Add(this.header);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             this.panel1.ResumeLayout(false);

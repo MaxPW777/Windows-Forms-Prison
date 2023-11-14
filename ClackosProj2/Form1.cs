@@ -49,7 +49,7 @@ namespace ClackosProj2
                             string prenom = reader.GetString("Prenom");
                             int ID = reader.GetInt32("ID_prisonnier");
                             string photo = reader.GetString("Photo_du_prisonnier");
-
+                            
                             // Ajoutez les données à la liste de prisonniers
                             prisonniers.Add(new Prisonnier
                             {
@@ -91,7 +91,7 @@ namespace ClackosProj2
             panel.BackColor = Color.White;
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.ForeColor = Color.White;
-
+            panel.Click += new EventHandler(this.item_Click);
             
             // Create a new PictureBox (ImageBox)
             PictureBox imageBox = new PictureBox();
@@ -115,7 +115,7 @@ namespace ClackosProj2
             panel.Controls.Add(label);
 
             // Calculate the position of the item in the container (listePrisonnier)
-            int labelsPerRow = 3; // Number of items per row
+            int labelsPerRow = 4; // Number of items per row
             int paddingX = 10;
             int paddingY = 10;
 
@@ -139,21 +139,20 @@ namespace ClackosProj2
         private void button1_Click(object sender, EventArgs e)
         {
 
-            foreach (var prisonnier in prisonniers)
+            foreach (Prisonnier prisonnier in prisonniers)
             {
-                CreateItem("jane.jpg", prisonnier.Nom);
+                string imagePath = prisonnier.Photo.ToLower();
+                imagePath = imagePath.Replace("photo_", "");
+
+                string name = prisonnier.Prenom + " " + prisonnier.Nom;
+                Console.WriteLine(name);
+                CreateItem(imagePath, prisonnier.Nom);
             }
         }
 
-        private void DynamicTextBox_TextChanged(object sender, EventArgs e)
+        private void item_Click(object sender, EventArgs e)
         {
-            // Handle the TextChanged event for the dynamically generated TextBox
-            // Add your custom logic here
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            Console.WriteLine("Item clicked",this); 
         }
     }
 }
