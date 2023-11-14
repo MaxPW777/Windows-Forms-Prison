@@ -77,42 +77,71 @@ namespace ClackosProj2
         {
             Console.WriteLine();
         }
-        private int textBoxCount = 0; // Add this field to your class
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CreateItem(string imagePath, string labelText)
         {
-            int textBoxesPerRow = 6; // Change this to the desired number of TextBoxes per row
-            int textBoxWidth = 100;
-            int textBoxHeight = 30;
+            int itemWidth = 150;
+            int itemHeight = 200; // Adjust as needed based on image and label height
+
+            // Create a new Panel for each item
+            Panel panel = new Panel();
+            panel.Name = "panel" + labelCount;
+            panel.Size = new Size(itemWidth, itemHeight);
+            panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.BackColor = Color.White;
+            panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.ForeColor = Color.White;
+
+            
+            // Create a new PictureBox (ImageBox)
+            PictureBox imageBox = new PictureBox();
+            imageBox.Name = "imageBox" + labelCount;
+            imageBox.ImageLocation = imagePath;
+            imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            imageBox.BorderStyle = BorderStyle.FixedSingle;
+            imageBox.Size = new Size(150, 150); // Set the image size
+
+            // Create a new Label
+            Label label = new Label();
+            label.Name = "label" + labelCount;
+            label.Text = labelText;
+            label.TextAlign = ContentAlignment.MiddleCenter;
+            label.BorderStyle = BorderStyle.FixedSingle;
+            label.Size = new Size(itemWidth, 50); // Set label height
+            label.Location = new Point(0, 150); // Set label location below image
+
+            // Add PictureBox and Label to the Panel
+            panel.Controls.Add(imageBox);
+            panel.Controls.Add(label);
+
+            // Calculate the position of the item in the container (listePrisonnier)
+            int labelsPerRow = 3; // Number of items per row
             int paddingX = 10;
             int paddingY = 10;
 
-            for (int i = 0; i < 20; i++) // Change '20' to the desired total number of TextBoxes
+            int i = labelCount;
+            int row = i / labelsPerRow;
+            int col = i % labelsPerRow;
+            int x = paddingX + col * (itemWidth + paddingX);
+            int y = paddingY + row * (itemHeight + paddingY);
+
+            // Set the position of the Panel
+            panel.Location = new Point(x, y);
+
+            // Add the Panel to the container (listePrisonnier)
+            listePrisonnier.Controls.Add(panel);
+
+            labelCount++; // Increment the count for the next item
+        }
+
+        private int labelCount = 0; // Add this field to your class
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            foreach (var prisonnier in prisonniers)
             {
-                // Create a new TextBox
-                TextBox dynamicTextBox = new TextBox();
-
-                // Set properties for the TextBox
-                dynamicTextBox.Name = "dynamicTextBox" + textBoxCount;
-                dynamicTextBox.Text = "Generated TextBox";
-                dynamicTextBox.Width = textBoxWidth;
-                dynamicTextBox.BackColor = Color.Red;
-
-                // Set the location based on the count of TextBoxes
-                int row = textBoxCount / textBoxesPerRow;
-                int col = textBoxCount % textBoxesPerRow;
-                int x = col * (textBoxWidth + paddingX);
-                int y = row * (textBoxHeight + paddingY);
-                dynamicTextBox.Location = new Point(x, y);
-
-                // Add the TextBox to the form's controls
-                listePrisonnier.Controls.Add(dynamicTextBox);
-
-                // Optionally, you can handle events for the dynamically generated control
-                dynamicTextBox.TextChanged += DynamicTextBox_TextChanged;
-
-                Console.WriteLine("created new textbox");
-                textBoxCount++; // Increment the count
+                CreateItem("jane.jpg", prisonnier.Nom);
             }
         }
 
