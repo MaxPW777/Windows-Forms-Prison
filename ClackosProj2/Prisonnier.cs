@@ -12,5 +12,7 @@
         public string Genre { get; set; }
         public string Statut { get; set; }
         public string DateNaissance { get; set; }
+        public string Infraction { get; set; }
+        public int? Cellule { get; set; }
     }
 }

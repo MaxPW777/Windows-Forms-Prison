@@ -65,23 +65,38 @@ namespace ClackosProj2
                 // Add the TextBox to the form's controls
                 listePrisonnier.Controls.Add(dynamicTextBox);
 
-                // Optionally, you can handle events for the dynamically generated control
-                dynamicTextBox.TextChanged += DynamicTextBox_TextChanged;
 
                 Console.WriteLine("created new textbox");
                 textBoxCount++; // Increment the count
             }
         }
 
-        private void DynamicTextBox_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            // Handle the TextChanged event for the dynamically generated TextBox
-            // Add your custom logic here
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            string customQuery = @"
+                                    SELECT 
+                                        p.ID_prisonnier,
+                                        p.Nom AS Nom,
+                                        p.Prenom AS Prenom,
+                                        p.Date_de_naissance AS Date_de_naissance,
+                                        p.Genre AS Genre,
+                                        p.Adresse AS Adresse,
+                                        p.Date_d_entree_en_prison AS Date_d_entree_en_prison,
+                                        p.Date_de_liberation_prevue AS Date_de_liberation_prevue,
+                                        p.Photo_du_prisonnier AS Photo_du_prisonnier,
+                                        p.Statut AS Statut,
+                                        i.Nom_de_l_infraction AS Infraction,
+                                        c.Numero_de_cellule
+                                    FROM 
+                                        prisonnier p
+                                    JOIN 
+                                        relation_table rt ON p.ID_prisonnier = rt.ID_prisonnier
+                                    JOIN 
+                                        infractions i ON rt.ID_infraction = i.ID_infractions
+                                    JOIN 
+                                        cellules c ON rt.ID_Cellule = c.ID_cellules;";
+            PrisonnierManager prisonnierManager3 = new PrisonnierManager(customQuery);
+            prisonniers = prisonnierManager3.GetAllPrisonners();
         }
     }
 }
