@@ -113,15 +113,16 @@ namespace ClackosProj2
             this.filterPanel.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.filterPanel.MinimumSize = new System.Drawing.Size(227, 2);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(227, 990);
+            this.filterPanel.Size = new System.Drawing.Size(227, 930);
             this.filterPanel.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(4, 567);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.Location = new System.Drawing.Point(0, 864);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 64);
+            this.button1.Size = new System.Drawing.Size(225, 64);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@ namespace ClackosProj2
             this.listePrisonnier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listePrisonnier.Name = "listePrisonnier";
             this.listePrisonnier.Padding = new System.Windows.Forms.Padding(10);
-            this.listePrisonnier.Size = new System.Drawing.Size(1098, 990);
+            this.listePrisonnier.Size = new System.Drawing.Size(1098, 930);
             this.listePrisonnier.TabIndex = 3;
             // 
             // Form1
@@ -148,6 +149,7 @@ namespace ClackosProj2
             this.Controls.Add(this.listePrisonnier);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.header);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -158,7 +160,6 @@ namespace ClackosProj2
             this.filterPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.FormBorderStyle = FormBorderStyle.FixedDialog; 
 
         }
 
