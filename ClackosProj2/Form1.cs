@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace ClackosProj2
 {
+   
     public partial class Form1 : Form
     {
+
+        public List<Prisonnier> prisonnierListe = new List<Prisonnier>() ;
         public Form1()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace ClackosProj2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int textBoxesPerRow = 5; // Change this to the desired number of TextBoxes per row
+            int textBoxesPerRow = 6; // Change this to the desired number of TextBoxes per row
             int textBoxWidth = 100;
             int textBoxHeight = 30;
             int paddingX = 10;

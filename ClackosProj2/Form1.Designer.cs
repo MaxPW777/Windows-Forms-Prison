@@ -30,15 +30,15 @@
         {
             this.title = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.searchBtn = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.listePrisonnier = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
-            this.filterPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.filterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // title
@@ -46,7 +46,7 @@
             this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(3, 3);
+            this.title.Location = new System.Drawing.Point(192, 3);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(324, 39);
             this.title.TabIndex = 0;
@@ -62,8 +62,19 @@
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(800, 48);
+            this.header.Size = new System.Drawing.Size(1178, 48);
             this.header.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchBtn);
+            this.panel1.Controls.Add(this.searchBox);
+            this.panel1.Location = new System.Drawing.Point(870, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(296, 32);
+            this.panel1.TabIndex = 3;
             // 
             // searchBtn
             // 
@@ -92,7 +103,7 @@
             this.filterPanel.Location = new System.Drawing.Point(0, 48);
             this.filterPanel.Margin = new System.Windows.Forms.Padding(6);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(204, 402);
+            this.filterPanel.Size = new System.Drawing.Size(204, 1002);
             this.filterPanel.TabIndex = 2;
             // 
             // button1
@@ -105,17 +116,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.searchBtn);
-            this.panel1.Controls.Add(this.searchBox);
-            this.panel1.Location = new System.Drawing.Point(492, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 32);
-            this.panel1.TabIndex = 3;
-            // 
             // listePrisonnier
             // 
             this.listePrisonnier.AutoScroll = true;
@@ -124,14 +124,14 @@
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listePrisonnier.Location = new System.Drawing.Point(204, 48);
             this.listePrisonnier.Name = "listePrisonnier";
-            this.listePrisonnier.Size = new System.Drawing.Size(596, 402);
+            this.listePrisonnier.Size = new System.Drawing.Size(974, 1002);
             this.listePrisonnier.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1178, 1050);
             this.Controls.Add(this.listePrisonnier);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.header);
@@ -140,9 +140,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
-            this.filterPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.filterPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
