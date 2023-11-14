@@ -149,7 +149,7 @@ namespace ClackosProj2
 
         private void item_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Item clicked",this); 
+            Console.WriteLine("Item clicked",this);
         }
 
     }

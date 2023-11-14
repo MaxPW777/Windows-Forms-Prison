@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ClackosProj2
 {
@@ -109,13 +111,14 @@ namespace ClackosProj2
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.filterPanel.Location = new System.Drawing.Point(0, 60);
             this.filterPanel.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.filterPanel.MinimumSize = new System.Drawing.Size(227, 2);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(229, 990);
+            this.filterPanel.Size = new System.Drawing.Size(227, 990);
             this.filterPanel.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(8, 422);
+            this.button1.Location = new System.Drawing.Point(4, 567);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 64);
@@ -130,18 +133,18 @@ namespace ClackosProj2
             this.listePrisonnier.AutoSize = true;
             this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listePrisonnier.Location = new System.Drawing.Point(229, 60);
+            this.listePrisonnier.Location = new System.Drawing.Point(227, 60);
             this.listePrisonnier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listePrisonnier.Name = "listePrisonnier";
             this.listePrisonnier.Padding = new System.Windows.Forms.Padding(10);
-            this.listePrisonnier.Size = new System.Drawing.Size(1096, 990);
+            this.listePrisonnier.Size = new System.Drawing.Size(1098, 990);
             this.listePrisonnier.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1325, 1050);
+            this.ClientSize = new System.Drawing.Size(1325, 990);
             this.Controls.Add(this.listePrisonnier);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.header);
@@ -155,6 +158,7 @@ namespace ClackosProj2
             this.filterPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.FormBorderStyle = FormBorderStyle.FixedDialog; 
 
         }
 
