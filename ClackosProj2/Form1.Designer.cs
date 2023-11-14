@@ -1,4 +1,8 @@
-﻿namespace ClackosProj2
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Configuration;
+
+namespace ClackosProj2
 {
     partial class Form1
     {
@@ -6,6 +10,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        
 
         /// <summary>
         /// Clean up any resources being used.
@@ -19,7 +24,7 @@
             }
             base.Dispose(disposing);
         }
-
+       
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -80,7 +85,7 @@
             // 
             this.searchBtn.Location = new System.Drawing.Point(210, 3);
             this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(79, 29);
+            this.searchBtn.Size = new System.Drawing.Size(70, 23);
             this.searchBtn.TabIndex = 2;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
@@ -129,7 +134,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 1050);
             this.Controls.Add(this.listePrisonnier);
