@@ -90,7 +90,6 @@ namespace ClackosProj2
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.White;
             panel.BorderStyle = BorderStyle.FixedSingle;
-            panel.ForeColor = Color.White;
             panel.Click += new EventHandler(this.item_Click);
             
             // Create a new PictureBox (ImageBox)
@@ -145,8 +144,8 @@ namespace ClackosProj2
                 imagePath = imagePath.Replace("photo_", "");
 
                 string name = prisonnier.Prenom + " " + prisonnier.Nom;
-                Console.WriteLine(name);
-                CreateItem(imagePath, prisonnier.Nom);
+
+                CreateItem(imagePath, name);
             }
         }
 
@@ -154,5 +153,6 @@ namespace ClackosProj2
         {
             Console.WriteLine("Item clicked",this); 
         }
+
     }
 }

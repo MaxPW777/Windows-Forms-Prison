@@ -51,7 +51,7 @@ namespace ClackosProj2
             this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(192, 3);
+            this.title.Location = new System.Drawing.Point(216, 4);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(324, 39);
             this.title.TabIndex = 0;
@@ -65,9 +65,9 @@ namespace ClackosProj2
             this.header.Controls.Add(this.title);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
-            this.header.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.header.Margin = new System.Windows.Forms.Padding(3, 4, 3, 6);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(1178, 48);
+            this.header.Size = new System.Drawing.Size(1325, 60);
             this.header.TabIndex = 1;
             // 
             // panel1
@@ -76,16 +76,18 @@ namespace ClackosProj2
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.searchBtn);
             this.panel1.Controls.Add(this.searchBox);
-            this.panel1.Location = new System.Drawing.Point(870, 10);
+            this.panel1.Location = new System.Drawing.Point(979, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 32);
+            this.panel1.Size = new System.Drawing.Size(333, 40);
             this.panel1.TabIndex = 3;
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(210, 3);
+            this.searchBtn.Location = new System.Drawing.Point(236, 4);
+            this.searchBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(70, 23);
+            this.searchBtn.Size = new System.Drawing.Size(79, 29);
             this.searchBtn.TabIndex = 2;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
@@ -93,9 +95,10 @@ namespace ClackosProj2
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(3, 3);
+            this.searchBox.Location = new System.Drawing.Point(3, 4);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(201, 26);
+            this.searchBox.Size = new System.Drawing.Size(226, 26);
             this.searchBox.TabIndex = 1;
             // 
             // filterPanel
@@ -104,17 +107,18 @@ namespace ClackosProj2
             this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterPanel.Controls.Add(this.button1);
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.filterPanel.Location = new System.Drawing.Point(0, 48);
-            this.filterPanel.Margin = new System.Windows.Forms.Padding(6);
+            this.filterPanel.Location = new System.Drawing.Point(0, 60);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(204, 1002);
+            this.filterPanel.Size = new System.Drawing.Size(229, 990);
             this.filterPanel.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(7, 338);
+            this.button1.Location = new System.Drawing.Point(8, 422);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 51);
+            this.button1.Size = new System.Drawing.Size(216, 64);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -126,19 +130,22 @@ namespace ClackosProj2
             this.listePrisonnier.AutoSize = true;
             this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listePrisonnier.Location = new System.Drawing.Point(204, 48);
+            this.listePrisonnier.Location = new System.Drawing.Point(229, 60);
+            this.listePrisonnier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listePrisonnier.Name = "listePrisonnier";
-            this.listePrisonnier.Size = new System.Drawing.Size(974, 1002);
+            this.listePrisonnier.Padding = new System.Windows.Forms.Padding(10);
+            this.listePrisonnier.Size = new System.Drawing.Size(1096, 990);
             this.listePrisonnier.TabIndex = 3;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 1050);
+            this.ClientSize = new System.Drawing.Size(1325, 1050);
             this.Controls.Add(this.listePrisonnier);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.header);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.header.ResumeLayout(false);
