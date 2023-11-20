@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
+using System.Drawing.Drawing2D;
 
 namespace ClackosProj2
 {
@@ -24,10 +25,23 @@ namespace ClackosProj2
         public Form1()
         {
             InitializeComponent();
+            this.listePrisonnier.Paint += new PaintEventHandler(listePrisonnier_Paint);
             PrisonnierManager prisonnierManager = new PrisonnierManager("SELECT * FROM prisonnier");
             prisonniers = prisonnierManager.GetAllPrisonners();
         }
 
+        private void listePrisonnier_Paint(object sender, PaintEventArgs e)
+        {
+            // Create a linear gradient brush
+            LinearGradientBrush brush = new LinearGradientBrush(
+                this.listePrisonnier.ClientRectangle,
+                Color.Red,
+                Color.Blue,
+                LinearGradientMode.ForwardDiagonal); // Gradient from bottom left to top right
+
+            // Fill the background of listePrisonnier with the gradient brush
+            e.Graphics.FillRectangle(brush, this.listePrisonnier.ClientRectangle);
+        }
         private int textBoxCount = 0; // Add this field to your clas
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -108,7 +122,8 @@ namespace ClackosProj2
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            labelCount = 0;
+            listePrisonnier.Controls.Clear();
             foreach (Prisonnier prisonnier in prisonniers)
             {
                 CreateItem(prisonnier);
