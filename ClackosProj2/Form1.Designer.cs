@@ -305,7 +305,7 @@ namespace ClackosProj2
             this.afficherPrisonnier.TabIndex = 10;
             this.afficherPrisonnier.Text = "afficherDetails";
             this.afficherPrisonnier.UseVisualStyleBackColor = true;
-            this.afficherPrisonnier.Click += new System.EventHandler(this.afficherPrisonnier_Click_1);
+            this.afficherPrisonnier.Click += new System.EventHandler(this.afficherPrisonnier_Click);
             // 
             // Form1
             // 
