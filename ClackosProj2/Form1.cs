@@ -76,6 +76,10 @@ namespace ClackosProj2
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.BorderStyle = BorderStyle.FixedSingle;
             imageBox.Size = new Size(150, 150); // Set the image size
+            imageBox.Click += (sender, args) =>
+            {
+                item_Click(prisonnier);
+            };
 
             // Create a new Label
             Label label = new Label();
@@ -114,13 +118,27 @@ namespace ClackosProj2
 
         private void item_Click(Prisonnier prisonnier)
         {
-            Console.WriteLine("Item clicked", this);
-            Console.WriteLine(prisonnier.Nom);
+            button1.Enabled = false;
+            listePrisonnier.Controls.Clear();
+            listePrisonnier.Controls.Add(detailPrisonnierPanel);
+            detailPrisonnierPanel.Visible = !detailPrisonnierPanel.Visible;
+
+            detailPhoto.ImageLocation = prisonnier.Photo.Replace("photo_", "images/");
+            detailPhoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            detailPhoto.BorderStyle = BorderStyle.FixedSingle;
+
+            detailNomPrenom.Text = prisonnier.Nom + prisonnier.Prenom;
+            detailID.Text = prisonnier.ID.ToString();
         }
 
         private int labelCount = 0; // Add this field to your class
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            generatePrisonniers();
+        }
+
+        private void generatePrisonniers()
         {
             labelCount = 0;
             listePrisonnier.Controls.Clear();
@@ -129,7 +147,6 @@ namespace ClackosProj2
                 CreateItem(prisonnier);
             }
         }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -159,26 +176,12 @@ namespace ClackosProj2
             prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void detailGenre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void afficherPrisonnier_Click_1(object sender, EventArgs e)
-        {
-            Console.WriteLine("Afficher prisonnier");
-            detailPrisonnierPanel.Visible = !detailPrisonnierPanel.Visible;
-            detailPhoto.ImageLocation = "./" + prisonniers[0].Photo;
-            Console.WriteLine(prisonniers[0].Photo);
-            detailNomPrenom.Text = prisonniers[0].Nom + prisonniers[0].Prenom;
-            detailID.Text = prisonniers[0].ID.ToString();
-
-
+        private void CloseWindow_Click_1(object sender, EventArgs e)
+        {  
+            detailPrisonnierPanel.Visible = false;
+            generatePrisonniers();
+            button1.Enabled = true;
+            
         }
     }
 
