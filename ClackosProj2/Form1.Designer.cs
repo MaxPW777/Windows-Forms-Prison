@@ -61,6 +61,7 @@ namespace ClackosProj2
             this.detailAdresse = new System.Windows.Forms.Label();
             this.detailInfraction = new System.Windows.Forms.Label();
             this.detailCellule = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.filterPanel.SuspendLayout();
@@ -81,7 +82,7 @@ namespace ClackosProj2
             this.title.Location = new System.Drawing.Point(144, 2);
             this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(224, 27);
+            this.title.Size = new System.Drawing.Size(271, 33);
             this.title.TabIndex = 0;
             this.title.Text = "PrYson V2 APP EDITION";
             this.title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -126,7 +127,7 @@ namespace ClackosProj2
             this.searchBox.Location = new System.Drawing.Point(2, 2);
             this.searchBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(152, 20);
+            this.searchBox.Size = new System.Drawing.Size(201, 22);
             this.searchBox.TabIndex = 1;
             // 
             // filterPanel
@@ -167,9 +168,8 @@ namespace ClackosProj2
             // 
             this.listePrisonnier.AutoScroll = true;
             this.listePrisonnier.AutoSize = true;
-            this.listePrisonnier.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.listePrisonnier.Controls.Add(this.detailsPrisonnier);
+            this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listePrisonnier.Controls.Add(this.button2);
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listePrisonnier.Location = new System.Drawing.Point(153, 39);
             this.listePrisonnier.Margin = new System.Windows.Forms.Padding(2);
@@ -409,6 +409,15 @@ namespace ClackosProj2
             this.detailCellule.Size = new System.Drawing.Size(56, 31);
             this.detailCellule.TabIndex = 11;
             this.detailCellule.Text = "Test";
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(258, 104);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(372, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -421,7 +430,6 @@ namespace ClackosProj2
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -472,6 +480,7 @@ namespace ClackosProj2
         private System.Windows.Forms.Label detailCellule;
         private System.Windows.Forms.Label detailInfraction;
         private System.Windows.Forms.Label detailAdresse;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -1,9 +1,10 @@
-﻿using System;
+﻿susing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,66 +19,22 @@ namespace ClackosProj2
     {
 
         public List<Prisonnier> prisonniers = new List<Prisonnier>();
-
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
         public Form1()
         {
             InitializeComponent();
-            AllPrisonners();
+            PrisonnierManager prisonnierManager = new PrisonnierManager("SELECT * FROM prisonnier");
+            prisonniers = prisonnierManager.GetAllPrisonners();
         }
-        private void AllPrisonners()
-        {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    // Exécutez vos opérations sur la base de données ici
-                    // Par exemple, exécutez une requête SQL pour récupérer des données
-
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM prisonnier", connection);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-
-
-                        while (reader.Read())
-                        {
-                            // Lisez les données du lecteur et utilisez-les comme nécessaire
-                            string nom = reader.GetString("Nom");
-                            string prenom = reader.GetString("Prenom");
-                            int ID = reader.GetInt32("ID_prisonnier");
-                            string photo = reader.GetString("Photo_du_prisonnier");
-
-                            // Ajoutez les données à la liste de prisonniers
-                            prisonniers.Add(new Prisonnier
-                            {
-                                Nom = nom,
-                                Prenom = prenom,
-                                ID = ID,
-                                Photo = photo
-                            });
-                        }
-                        foreach (Prisonnier prisonnier in prisonniers)
-                        {
-                            Console.WriteLine($"Nom: {prisonnier.Nom}, ID: {prisonnier.ID}, Prénom: {prisonnier.Prenom}, Photo: {prisonnier.Photo}");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Gérez les erreurs ici
-                    Console.WriteLine(ex.Message);
-                }
-            }
-        }
+       
+        private int textBoxCount = 0; // Add this field to your clas
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Searching");
+            string search = searchBox.Text;
+            Console.WriteLine(search);
+            PrisonnierManager prisonnierManager2 = new PrisonnierManager("SELECT * FROM prisonnier WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
+            prisonniers = prisonnierManager2.GetAllPrisonners();
         }
-        private int textBoxCount = 0; // Add this field to your class
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -107,19 +64,41 @@ namespace ClackosProj2
                 textBox.Location = new Point(x, y);
                 textBox.Size = new Size(textBoxWidth, textBoxHeight);
 
-                // Add the TextBox to the form
-                listePrisonnier.Controls.Add(textBox);
+                // Add the TextBox to the form's controls
+                listePrisonnier.Controls.Add(dynamicTextBox);
+
+
+                Console.WriteLine("created new textbox");
+                textBoxCount++; // Increment the count
             }
         }
-            private void DynamicTextBox_TextChanged(object sender, EventArgs e)
-        {
-            // Handle the TextChanged event for the dynamically generated TextBox
-            // Add your custom logic here
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            string customQuery = @"
+                                    SELECT 
+                                        p.ID_prisonnier,
+                                        p.Nom AS Nom,
+                                        p.Prenom AS Prenom,
+                                        p.Date_de_naissance AS Date_de_naissance,
+                                        p.Genre AS Genre,
+                                        p.Adresse AS Adresse,
+                                        p.Date_d_entree_en_prison AS Date_d_entree_en_prison,
+                                        p.Date_de_liberation_prevue AS Date_de_liberation_prevue,
+                                        p.Photo_du_prisonnier AS Photo_du_prisonnier,
+                                        p.Statut AS Statut,
+                                        i.Nom_de_l_infraction AS Infraction,
+                                        c.Numero_de_cellule
+                                    FROM 
+                                        prisonnier p
+                                    JOIN 
+                                        relation_table rt ON p.ID_prisonnier = rt.ID_prisonnier
+                                    JOIN 
+                                        infractions i ON rt.ID_infraction = i.ID_infractions
+                                    JOIN 
+                                        cellules c ON rt.ID_Cellule = c.ID_cellules;";
+            PrisonnierManager prisonnierManager3 = new PrisonnierManager(customQuery);
+            prisonniers = prisonnierManager3.GetAllPrisonners();
         }
 
         private void detailsPrisonnier_CellContentClick(object sender, DataGridViewCellEventArgs e)
