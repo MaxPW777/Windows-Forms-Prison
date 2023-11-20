@@ -19,6 +19,7 @@ namespace ClackosProj2
     {
 
         public List<Prisonnier> prisonniers = new List<Prisonnier>();
+        public List<Prisonnier2> prisonniersPlus = new List<Prisonnier2>();
         public Form1()
         {
             InitializeComponent();
@@ -95,8 +96,8 @@ namespace ClackosProj2
                                         infractions i ON rt.ID_infraction = i.ID_infractions
                                     JOIN 
                                         cellules c ON rt.ID_Cellule = c.ID_cellules;";
-            PrisonnierManager prisonnierManager3 = new PrisonnierManager(customQuery);
-            prisonniers = prisonnierManager3.GetAllPrisonners();
+            PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
+            prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
         }
     }
 }

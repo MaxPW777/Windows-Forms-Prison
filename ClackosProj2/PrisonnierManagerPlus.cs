@@ -4,19 +4,19 @@ using System.Configuration;
 using ClackosProj2;
 using MySql.Data.MySqlClient;
 
-public class PrisonnierManager
+public class PrisonnierManagerPlus
 {
     private string request;
     private readonly string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
 
-    public PrisonnierManager(string request)
+    public PrisonnierManagerPlus(string request)
     {
         this.request = request;
     }
 
-    public List<Prisonnier> GetAllPrisonners()
+    public List<Prisonnier2> GetAllPrisonners()
     {
-        List<Prisonnier> prisonniers = new List<Prisonnier>();
+        List<Prisonnier2> prisonniers = new List<Prisonnier2>();
 
         using (MySqlConnection connection = new MySqlConnection(connectionString))
         {
@@ -40,11 +40,11 @@ public class PrisonnierManager
                         string genre = reader.GetString("Genre");
                         string statut = reader.GetString("Statut");
                         string dateNaissance = reader.GetString("Date_de_naissance");
-                        //string infraction = reader.IsDBNull(reader.GetOrdinal("Infraction")) ? null : reader.GetString("Infraction");
-                        //int? cellule = reader.IsDBNull(reader.GetOrdinal("Numero_de_cellule")) ? (int?)null : reader.GetInt32("Numero_de_cellule");
+                        string infraction = reader.GetString("Infraction");
+                        int cellule = reader.GetInt32("Numero_de_cellule");
 
 
-                        prisonniers.Add(new Prisonnier
+                        prisonniers.Add(new Prisonnier2
                         {
                             Nom = nom,
                             Prenom = prenom,
@@ -55,7 +55,9 @@ public class PrisonnierManager
                             DateSortie = dateSortie,
                             Genre = genre,
                             Statut = statut,
-                            DateNaissance = dateNaissance
+                            DateNaissance = dateNaissance,
+                            Infraction = infraction,
+                            Cellule = cellule
                         });
                     }
                 }
@@ -65,9 +67,9 @@ public class PrisonnierManager
                 Console.WriteLine(ex.Message);
                 // Gérer les erreurs ici si nécessaire
             }
-            foreach (Prisonnier prisonnier in prisonniers)
+            foreach (Prisonnier2 prisonnier in prisonniers)
             {
-                Console.WriteLine($"Nom: {prisonnier.Nom}, ID: {prisonnier.ID}, Prénom: {prisonnier.Prenom}, Photo: {prisonnier.Photo}, Adresse: {prisonnier.Adresse}, Date d'entrée: {prisonnier.DateEntree}, Date de sortie: {prisonnier.DateSortie}, Genre: {prisonnier.Genre}, Statut: {prisonnier.Statut}, Date de naissance: {prisonnier.DateNaissance}");
+                Console.WriteLine($"Nom: {prisonnier.Nom}, ID: {prisonnier.ID}, Prénom: {prisonnier.Prenom}, Photo: {prisonnier.Photo}, Adresse: {prisonnier.Adresse}, Date d'entrée: {prisonnier.DateEntree}, Date de sortie: {prisonnier.DateSortie}, Genre: {prisonnier.Genre}, Statut: {prisonnier.Statut}, Date de naissance: {prisonnier.DateNaissance}, Infraction : {prisonnier.Infraction}, Cellule : {prisonnier.Cellule}");
             }
         }
         return prisonniers;
