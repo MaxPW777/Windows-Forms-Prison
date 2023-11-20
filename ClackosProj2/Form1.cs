@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -129,16 +130,19 @@ namespace ClackosProj2
             int y = paddingY + row * (itemHeight + paddingY);
 
             panel.Location = new Point(x, y);
-
+            panel.Click += (sender, e) => {
+                item_Click(prisonnier);
+            };
 
             listePrisonnier.Controls.Add(panel);
 
             labelCount++; // Increment the count for the next item
         }
 
-        private void item_Click(object sender, EventArgs e)
+        private void item_Click(Prisonnier prisonnier)
         {
             Console.WriteLine("Item clicked",this);
+            Console.WriteLine(prisonnier.Nom);
         }
 
         private int labelCount = 0; // Add this field to your class
