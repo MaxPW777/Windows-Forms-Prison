@@ -49,7 +49,7 @@ namespace ClackosProj2
                             string prenom = reader.GetString("Prenom");
                             int ID = reader.GetInt32("ID_prisonnier");
                             string photo = reader.GetString("Photo_du_prisonnier");
-
+                            
                             // Ajoutez les données à la liste de prisonniers
                             prisonniers.Add(new Prisonnier
                             {
@@ -77,13 +77,48 @@ namespace ClackosProj2
         {
             Console.WriteLine();
         }
-        private int textBoxCount = 0; // Add this field to your class
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CreateItem(Prisonnier prisonnier)
         {
-            int textBoxesPerRow = 6; // Change this to the desired number of TextBoxes per row
-            int textBoxWidth = 100;
-            int textBoxHeight = 30;
+            int itemWidth = 150;
+            int itemHeight = 200; // Adjust as needed based on image and label height
+
+            // Create a new Panel for each item
+            Panel panel = new Panel();
+            panel.Name = "panel" + labelCount;
+            panel.Size = new Size(itemWidth, itemHeight);
+            panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.BackColor = Color.White;
+            panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.Click += new EventHandler(this.item_Click);
+            
+            // Create a new PictureBox (ImageBox)
+            PictureBox imageBox = new PictureBox();
+            imageBox.Name = "imageBox" + labelCount;
+
+            string imagePath = prisonnier.Photo.ToLower();
+            imagePath = imagePath.Replace("photo_", "images/");
+            imageBox.ImageLocation = imagePath;
+
+            imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            imageBox.BorderStyle = BorderStyle.FixedSingle;
+            imageBox.Size = new Size(150, 150); // Set the image size
+
+            // Create a new Label
+            Label label = new Label();
+            label.Name = "label" + labelCount;
+            label.Text = prisonnier.Nom + " " + prisonnier.Prenom;
+            label.TextAlign = ContentAlignment.MiddleCenter;
+            label.BorderStyle = BorderStyle.FixedSingle;
+            label.Size = new Size(itemWidth, 50); // Set label height
+            label.Location = new Point(0, 150); // Set label location below image
+
+            // Add PictureBox and Label to the Panel
+            panel.Controls.Add(imageBox);
+            panel.Controls.Add(label);
+
+            // Calculate the position of the item in the container (listePrisonnier)
+            int labelsPerRow = 4; // Number of items per row
             int paddingX = 10;
             int paddingY = 10;
 
@@ -116,15 +151,10 @@ namespace ClackosProj2
             }
         }
 
-        private void DynamicTextBox_TextChanged(object sender, EventArgs e)
+        private void item_Click(object sender, EventArgs e)
         {
-            // Handle the TextChanged event for the dynamically generated TextBox
-            // Add your custom logic here
+            Console.WriteLine("Item clicked",this);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
