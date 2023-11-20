@@ -143,6 +143,28 @@ namespace ClackosProj2
             PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
             prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detailGenre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void afficherPrisonnier_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Afficher prisonnier");
+            detailPrisonnierPanel.Visible = !detailPrisonnierPanel.Visible;
+            detailPhoto.ImageLocation = "./" + prisonniers[0].Photo;
+            Console.WriteLine(prisonniers[0].Photo);
+            detailNomPrenom.Text = prisonniers[0].Nom + prisonniers[0].Prenom;
+            detailID.Text = prisonniers[0].ID.ToString();
+
+
+        }
     }
 
 
