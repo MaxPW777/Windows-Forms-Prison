@@ -80,7 +80,6 @@ namespace ClackosProj2
 
         private void CreateItem(Prisonnier prisonnier)
         {
-            Console.WriteLine(prisonnier);
             int itemWidth = 150;
             int itemHeight = 200; // Adjust as needed based on image and label height
 
@@ -92,7 +91,7 @@ namespace ClackosProj2
             panel.BackColor = Color.White;
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Click += new EventHandler(this.item_Click);
-            
+
             // Create a new PictureBox (ImageBox)
             PictureBox imageBox = new PictureBox();
             imageBox.Name = "imageBox" + labelCount;
@@ -123,9 +122,20 @@ namespace ClackosProj2
             int paddingX = 10;
             int paddingY = 10;
 
-            
+            int i = labelCount;
+            int row = i / labelsPerRow;
+            int col = i % labelsPerRow;
+            int x = paddingX + col * (itemWidth + paddingX);
+            int y = paddingY + row * (itemHeight + paddingY);
+
+            panel.Location = new Point(x, y);
+
+
+            listePrisonnier.Controls.Add(panel);
+
+            labelCount++; // Increment the count for the next item
         }
-        
+
         private void item_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Item clicked",this);

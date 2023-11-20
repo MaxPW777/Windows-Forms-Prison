@@ -134,11 +134,11 @@ namespace ClackosProj2
             this.listePrisonnier.AutoSize = true;
             this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listePrisonnier.Location = new System.Drawing.Point(0, 0);
+            this.listePrisonnier.Location = new System.Drawing.Point(227, 60);
             this.listePrisonnier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listePrisonnier.Name = "listePrisonnier";
             this.listePrisonnier.Padding = new System.Windows.Forms.Padding(10);
-            this.listePrisonnier.Size = new System.Drawing.Size(1325, 990);
+            this.listePrisonnier.Size = new System.Drawing.Size(1098, 930);
             this.listePrisonnier.TabIndex = 3;
             // 
             // Form1
@@ -146,9 +146,9 @@ namespace ClackosProj2
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1325, 990);
+            this.Controls.Add(this.listePrisonnier);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.header);
-            this.Controls.Add(this.listePrisonnier);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
