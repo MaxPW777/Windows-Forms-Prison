@@ -42,10 +42,23 @@ namespace ClackosProj2
             this.button1 = new System.Windows.Forms.Button();
             this.listePrisonnier = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.allInfo = new System.Windows.Forms.Panel();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.textBoxPrenom = new System.Windows.Forms.TextBox();
+            this.textBoxBirth = new System.Windows.Forms.TextBox();
+            this.textBoxGender = new System.Windows.Forms.TextBox();
+            this.textBoxAdress = new System.Windows.Forms.TextBox();
+            this.textBoxEntry = new System.Windows.Forms.TextBox();
+            this.textBoxExit = new System.Windows.Forms.TextBox();
+            this.textBoxPhoto = new System.Windows.Forms.TextBox();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.filterPanel.SuspendLayout();
             this.listePrisonnier.SuspendLayout();
+            this.allInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // title
@@ -104,6 +117,7 @@ namespace ClackosProj2
             // 
             this.filterPanel.AutoSize = true;
             this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterPanel.Controls.Add(this.button3);
             this.filterPanel.Controls.Add(this.button1);
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.filterPanel.Location = new System.Drawing.Point(0, 48);
@@ -127,6 +141,7 @@ namespace ClackosProj2
             this.listePrisonnier.AutoScroll = true;
             this.listePrisonnier.AutoSize = true;
             this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listePrisonnier.Controls.Add(this.allInfo);
             this.listePrisonnier.Controls.Add(this.button2);
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listePrisonnier.Location = new System.Drawing.Point(204, 48);
@@ -144,6 +159,109 @@ namespace ClackosProj2
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 396);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(185, 56);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Add Prisoner";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // allInfo
+            // 
+            this.allInfo.AutoSize = true;
+            this.allInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.allInfo.Controls.Add(this.button4);
+            this.allInfo.Controls.Add(this.textBoxStatus);
+            this.allInfo.Controls.Add(this.textBoxPhoto);
+            this.allInfo.Controls.Add(this.textBoxExit);
+            this.allInfo.Controls.Add(this.textBoxEntry);
+            this.allInfo.Controls.Add(this.textBoxAdress);
+            this.allInfo.Controls.Add(this.textBoxGender);
+            this.allInfo.Controls.Add(this.textBoxBirth);
+            this.allInfo.Controls.Add(this.textBoxPrenom);
+            this.allInfo.Controls.Add(this.textBoxNom);
+            this.allInfo.Location = new System.Drawing.Point(258, 84);
+            this.allInfo.Name = "allInfo";
+            this.allInfo.Size = new System.Drawing.Size(442, 617);
+            this.allInfo.TabIndex = 1;
+            this.allInfo.Visible = false;
+            // 
+            // textBoxNom
+            // 
+            this.textBoxNom.Location = new System.Drawing.Point(25, 50);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(239, 22);
+            this.textBoxNom.TabIndex = 0;
+            // 
+            // textBoxPrenom
+            // 
+            this.textBoxPrenom.Location = new System.Drawing.Point(25, 100);
+            this.textBoxPrenom.Name = "textBoxPrenom";
+            this.textBoxPrenom.Size = new System.Drawing.Size(239, 22);
+            this.textBoxPrenom.TabIndex = 1;
+            // 
+            // textBoxBirth
+            // 
+            this.textBoxBirth.Location = new System.Drawing.Point(25, 150);
+            this.textBoxBirth.Name = "textBoxBirth";
+            this.textBoxBirth.Size = new System.Drawing.Size(239, 22);
+            this.textBoxBirth.TabIndex = 2;
+            // 
+            // textBoxGender
+            // 
+            this.textBoxGender.Location = new System.Drawing.Point(25, 200);
+            this.textBoxGender.Name = "textBoxGender";
+            this.textBoxGender.Size = new System.Drawing.Size(239, 22);
+            this.textBoxGender.TabIndex = 3;
+            // 
+            // textBoxAdress
+            // 
+            this.textBoxAdress.Location = new System.Drawing.Point(25, 250);
+            this.textBoxAdress.Name = "textBoxAdress";
+            this.textBoxAdress.Size = new System.Drawing.Size(239, 22);
+            this.textBoxAdress.TabIndex = 4;
+            // 
+            // textBoxEntry
+            // 
+            this.textBoxEntry.Location = new System.Drawing.Point(25, 300);
+            this.textBoxEntry.Name = "textBoxEntry";
+            this.textBoxEntry.Size = new System.Drawing.Size(239, 22);
+            this.textBoxEntry.TabIndex = 5;
+            // 
+            // textBoxExit
+            // 
+            this.textBoxExit.Location = new System.Drawing.Point(25, 350);
+            this.textBoxExit.Name = "textBoxExit";
+            this.textBoxExit.Size = new System.Drawing.Size(239, 22);
+            this.textBoxExit.TabIndex = 6;
+            // 
+            // textBoxPhoto
+            // 
+            this.textBoxPhoto.Location = new System.Drawing.Point(25, 400);
+            this.textBoxPhoto.Name = "textBoxPhoto";
+            this.textBoxPhoto.Size = new System.Drawing.Size(239, 22);
+            this.textBoxPhoto.TabIndex = 7;
+            // 
+            // textBoxStatus
+            // 
+            this.textBoxStatus.Location = new System.Drawing.Point(25, 450);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(239, 22);
+            this.textBoxStatus.TabIndex = 8;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(149, 527);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(130, 23);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "ADD";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -160,6 +278,9 @@ namespace ClackosProj2
             this.panel1.PerformLayout();
             this.filterPanel.ResumeLayout(false);
             this.listePrisonnier.ResumeLayout(false);
+            this.listePrisonnier.PerformLayout();
+            this.allInfo.ResumeLayout(false);
+            this.allInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,6 +297,18 @@ namespace ClackosProj2
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel listePrisonnier;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel allInfo;
+        private System.Windows.Forms.TextBox textBoxGender;
+        private System.Windows.Forms.TextBox textBoxBirth;
+        private System.Windows.Forms.TextBox textBoxPrenom;
+        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.TextBox textBoxStatus;
+        private System.Windows.Forms.TextBox textBoxPhoto;
+        private System.Windows.Forms.TextBox textBoxExit;
+        private System.Windows.Forms.TextBox textBoxEntry;
+        private System.Windows.Forms.TextBox textBoxAdress;
+        private System.Windows.Forms.Button button4;
     }
 }
 

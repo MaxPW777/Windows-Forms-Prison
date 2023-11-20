@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
-
 namespace ClackosProj2
 {
 
@@ -98,6 +97,28 @@ namespace ClackosProj2
                                         cellules c ON rt.ID_Cellule = c.ID_cellules;";
             PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
             prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listePrisonnier.Controls.Clear();
+            listePrisonnier.Controls.Add(allInfo);
+            allInfo.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddPrisonnier addPrisonnier = new AddPrisonnier();
+            addPrisonnier.Nom = textBoxNom.Text;
+            addPrisonnier.Prenom = textBoxPrenom.Text;
+            addPrisonnier.DateNaissance = textBoxBirth.Text;
+            addPrisonnier.Genre = textBoxGender.Text;
+            addPrisonnier.Adresse = textBoxAdress.Text;
+            addPrisonnier.DateEntree = textBoxEntry.Text;
+            addPrisonnier.DateSortie = textBoxExit.Text;
+            addPrisonnier.Photo = textBoxPhoto.Text;
+            addPrisonnier.Statut = textBoxStatus.Text;
+            Console.WriteLine(addPrisonnier.Nom);
         }
     }
 }
