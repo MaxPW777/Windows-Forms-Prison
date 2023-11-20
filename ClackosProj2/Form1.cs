@@ -25,23 +25,11 @@ namespace ClackosProj2
         public Form1()
         {
             InitializeComponent();
-            this.listePrisonnier.Paint += new PaintEventHandler(listePrisonnier_Paint);
             PrisonnierManager prisonnierManager = new PrisonnierManager("SELECT * FROM prisonnier");
             prisonniers = prisonnierManager.GetAllPrisonners();
+            
         }
 
-        private void listePrisonnier_Paint(object sender, PaintEventArgs e)
-        {
-            // Create a linear gradient brush
-            LinearGradientBrush brush = new LinearGradientBrush(
-                this.listePrisonnier.ClientRectangle,
-                Color.Red,
-                Color.Blue,
-                LinearGradientMode.ForwardDiagonal); // Gradient from bottom left to top right
-
-            // Fill the background of listePrisonnier with the gradient brush
-            e.Graphics.FillRectangle(brush, this.listePrisonnier.ClientRectangle);
-        }
         private int textBoxCount = 0; // Add this field to your clas
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -72,14 +60,16 @@ namespace ClackosProj2
             string imagePath = prisonnier.Photo.ToLower();
             imagePath = imagePath.Replace("photo_", "images/");
             imageBox.ImageLocation = imagePath;
-
+            imageBox.BackColor = Color.Transparent;
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.BorderStyle = BorderStyle.FixedSingle;
+            
             imageBox.Size = new Size(150, 150); // Set the image size
             imageBox.Click += (sender, args) =>
             {
                 item_Click(prisonnier);
             };
+
 
             // Create a new Label
             Label label = new Label();
@@ -87,8 +77,11 @@ namespace ClackosProj2
             label.Text = prisonnier.Nom + " " + prisonnier.Prenom;
             label.TextAlign = ContentAlignment.MiddleCenter;
             label.BorderStyle = BorderStyle.FixedSingle;
+            label.ForeColor = Color.White;
             label.Size = new Size(itemWidth, 50); // Set label height
             label.Location = new Point(0, 150); // Set label location below image
+            label.BackColor = Color.FromArgb(40, 40, 40);
+            label.Font = new Font("Arial", 10, FontStyle.Bold);
 
             // Add PictureBox and Label to the Panel
             panel.Controls.Add(imageBox);

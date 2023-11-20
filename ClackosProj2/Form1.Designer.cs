@@ -68,6 +68,7 @@ namespace ClackosProj2
             this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.SystemColors.Control;
             this.title.Location = new System.Drawing.Point(216, 5);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(324, 39);
@@ -78,6 +79,7 @@ namespace ClackosProj2
             // header
             // 
             this.header.AutoSize = true;
+            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.header.Controls.Add(this.panel1);
             this.header.Controls.Add(this.title);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
@@ -121,6 +123,7 @@ namespace ClackosProj2
             // filterPanel
             // 
             this.filterPanel.AutoSize = true;
+            this.filterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterPanel.Controls.Add(this.button1);
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -147,6 +150,7 @@ namespace ClackosProj2
             // 
             this.listePrisonnier.AutoScroll = true;
             this.listePrisonnier.AutoSize = true;
+            this.listePrisonnier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listePrisonnier.Controls.Add(this.detailPrisonnierPanel);
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -159,7 +163,7 @@ namespace ClackosProj2
             // 
             // detailPrisonnierPanel
             // 
-            this.detailPrisonnierPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.detailPrisonnierPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.detailPrisonnierPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.detailPrisonnierPanel.Controls.Add(this.CloseWindow);
             this.detailPrisonnierPanel.Controls.Add(this.detailInfraction);
