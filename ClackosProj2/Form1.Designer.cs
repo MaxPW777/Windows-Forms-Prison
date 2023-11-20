@@ -12,7 +12,7 @@ namespace ClackosProj2
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -26,7 +26,7 @@ namespace ClackosProj2
             }
             base.Dispose(disposing);
         }
-       
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -43,9 +43,11 @@ namespace ClackosProj2
             this.filterPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.listePrisonnier = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.filterPanel.SuspendLayout();
+            this.listePrisonnier.SuspendLayout();
             this.SuspendLayout();
             // 
             // title
@@ -55,7 +57,7 @@ namespace ClackosProj2
             this.title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.Location = new System.Drawing.Point(216, 4);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(324, 39);
+            this.title.Size = new System.Drawing.Size(271, 33);
             this.title.TabIndex = 0;
             this.title.Text = "PrYson V2 APP EDITION";
             this.title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -74,7 +76,7 @@ namespace ClackosProj2
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.searchBtn);
             this.panel1.Controls.Add(this.searchBox);
@@ -133,6 +135,7 @@ namespace ClackosProj2
             this.listePrisonnier.AutoScroll = true;
             this.listePrisonnier.AutoSize = true;
             this.listePrisonnier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listePrisonnier.Controls.Add(this.button2);
             this.listePrisonnier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listePrisonnier.Location = new System.Drawing.Point(227, 60);
             this.listePrisonnier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -140,6 +143,16 @@ namespace ClackosProj2
             this.listePrisonnier.Padding = new System.Windows.Forms.Padding(10);
             this.listePrisonnier.Size = new System.Drawing.Size(1098, 930);
             this.listePrisonnier.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(258, 104);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(372, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -158,6 +171,7 @@ namespace ClackosProj2
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.filterPanel.ResumeLayout(false);
+            this.listePrisonnier.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,6 +187,7 @@ namespace ClackosProj2
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel listePrisonnier;
+        private System.Windows.Forms.Button button2;
     }
 }
 
