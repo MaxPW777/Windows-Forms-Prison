@@ -122,28 +122,28 @@ namespace ClackosProj2
             int paddingX = 10;
             int paddingY = 10;
 
-            int i = labelCount;
-            int row = i / labelsPerRow;
-            int col = i % labelsPerRow;
-            int x = paddingX + col * (itemWidth + paddingX);
-            int y = paddingY + row * (itemHeight + paddingY);
 
-            // Set the position of the Panel
-            panel.Location = new Point(x, y);
+            for (int i = 0; i < prisonniers.Count(); i++)
+            {
+                // Create a new TextBox
+                TextBox textBox = new TextBox();
+                textBox.Name = "textBox" + textBoxCount;
+                textBox.Text = prisonniers[i].Nom;
+                textBox.TextChanged += new EventHandler(DynamicTextBox_TextChanged);
+                textBoxCount++;
 
-            // Add the Panel to the container (listePrisonnier)
-            listePrisonnier.Controls.Add(panel);
+                // Calculate the position of the TextBox
+                int row = i / textBoxesPerRow;
+                int col = i % textBoxesPerRow;
+                int x = paddingX + col * (textBoxWidth + paddingX);
+                int y = paddingY + row * (textBoxHeight + paddingY);
 
-            labelCount++; // Increment the count for the next item
-        }
+                // Set the position and size of the TextBox
+                textBox.Location = new Point(x, y);
+                textBox.Size = new Size(textBoxWidth, textBoxHeight);
 
-        private int labelCount = 0; // Add this field to your class
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            foreach (Prisonnier prisonnier in prisonniers){
-                CreateItem(prisonnier);
+                // Add the TextBox to the form
+                listePrisonnier.Controls.Add(textBox);
             }
         }
 
