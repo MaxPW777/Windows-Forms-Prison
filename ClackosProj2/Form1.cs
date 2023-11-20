@@ -80,6 +80,7 @@ namespace ClackosProj2
 
         private void CreateItem(Prisonnier prisonnier)
         {
+            Console.WriteLine(prisonnier);
             int itemWidth = 150;
             int itemHeight = 200; // Adjust as needed based on image and label height
 
@@ -122,39 +123,23 @@ namespace ClackosProj2
             int paddingX = 10;
             int paddingY = 10;
 
-            for (int i = 0; i < 20; i++) // Change '20' to the desired total number of TextBoxes
-            {
-                // Create a new TextBox
-                TextBox dynamicTextBox = new TextBox();
-
-                // Set properties for the TextBox
-                dynamicTextBox.Name = "dynamicTextBox" + textBoxCount;
-                dynamicTextBox.Text = "Generated TextBox";
-                dynamicTextBox.Width = textBoxWidth;
-                dynamicTextBox.BackColor = Color.Red;
-
-                // Set the location based on the count of TextBoxes
-                int row = textBoxCount / textBoxesPerRow;
-                int col = textBoxCount % textBoxesPerRow;
-                int x = col * (textBoxWidth + paddingX);
-                int y = row * (textBoxHeight + paddingY);
-                dynamicTextBox.Location = new Point(x, y);
-
-                // Add the TextBox to the form's controls
-                listePrisonnier.Controls.Add(dynamicTextBox);
-
-                // Optionally, you can handle events for the dynamically generated control
-                dynamicTextBox.TextChanged += DynamicTextBox_TextChanged;
-
-                Console.WriteLine("created new textbox");
-                textBoxCount++; // Increment the count
-            }
+            
         }
-
+        
         private void item_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Item clicked",this);
         }
 
+        private int labelCount = 0; // Add this field to your class
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            foreach (Prisonnier prisonnier in prisonniers)
+            {
+                CreateItem(prisonnier);
+            }
+        }
     }
 }
