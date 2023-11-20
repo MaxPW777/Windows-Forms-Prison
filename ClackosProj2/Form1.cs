@@ -87,29 +87,6 @@ namespace ClackosProj2
             int paddingX = 10;
             int paddingY = 10;
 
-
-            for (int i = 0; i < prisonniers.Count(); i++)
-            {
-                // Create a new TextBox
-                TextBox textBox = new TextBox();
-                textBox.Name = "textBox" + textBoxCount;
-                textBox.Text = prisonniers[i].Nom;
-                textBox.TextChanged += new EventHandler(DynamicTextBox_TextChanged);
-                textBoxCount++;
-
-                // Calculate the position of the TextBox
-                int row = i / textBoxesPerRow;
-                int col = i % textBoxesPerRow;
-                int x = paddingX + col * (textBoxWidth + paddingX);
-                int y = paddingY + row * (textBoxHeight + paddingY);
-
-                // Set the position and size of the TextBox
-                textBox.Location = new Point(x, y);
-                textBox.Size = new Size(textBoxWidth, textBoxHeight);
-
-                // Add the TextBox to the form
-                listePrisonnier.Controls.Add(textBox);
-            }
         }
 
         private void DynamicTextBox_TextChanged(object sender, EventArgs e)
