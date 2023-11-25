@@ -145,15 +145,15 @@ namespace ClackosProj2
             detailPhoto.SizeMode = PictureBoxSizeMode.StretchImage;
             detailPhoto.BorderStyle = BorderStyle.FixedSingle;
 
-            detailNomPrenom.Text = prisonnier.Nom + prisonnier.Prenom;
-            detailID.Text = prisonnier.ID.ToString();
-            detailAdresse.Text = prisonnier.Adresse;
-            detailEntree.Text = prisonnier.DateEntree;
-            detailSortie.Text = prisonnier.DateSortie;
-            detailGenre.Text = prisonnier.Genre;
-            detailNaissance.Text = prisonnier.DateNaissance;
-            detailInfraction.Text = prisonnier.Infraction;
-            detailCellule.Text = prisonnier.Cellule.ToString();
+            detailNomPrenom.Text = prisonnier.Nom +" " + prisonnier.Prenom;
+            detailID.Text = "ID : " + prisonnier.ID.ToString();
+            detailAdresse.Text = "Adresse : " + prisonnier.Adresse;
+            detailEntree.Text = "Entrée le : " + prisonnier.DateEntree.Substring(0, 10);
+            detailSortie.Text = "Sortie prévue le : " + prisonnier.DateSortie.Substring(0, 10);
+            detailGenre.Text = "Sexe : " +prisonnier.Genre;
+            detailNaissance.Text = "Née le  : " + prisonnier.DateNaissance.Substring(0, 10); 
+            detailInfraction.Text = "Infraction : " + prisonnier.Infraction;
+            detailCellule.Text = "Cellule n° : " +prisonnier.Cellule.ToString();
 
         }
 
@@ -187,6 +187,11 @@ namespace ClackosProj2
             generatePrisonniers();
             button1.Enabled = true;
             
+        }
+
+        private void detailSortie_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
