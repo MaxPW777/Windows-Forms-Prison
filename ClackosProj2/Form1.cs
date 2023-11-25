@@ -22,11 +22,36 @@ namespace ClackosProj2
 
         public List<Prisonnier> prisonniers = new List<Prisonnier>();
         public List<Prisonnier2> prisonniersPlus = new List<Prisonnier2>();
+        string customQuery = @"
+                                    SELECT 
+                                        p.ID_prisonnier,
+                                        p.Nom AS Nom,
+                                        p.Prenom AS Prenom,
+                                        p.Date_de_naissance AS Date_de_naissance,
+                                        p.Genre AS Genre,
+                                        p.Adresse AS Adresse,
+                                        p.Date_d_entree_en_prison AS Date_d_entree_en_prison,
+                                        p.Date_de_liberation_prevue AS Date_de_liberation_prevue,
+                                        p.Photo_du_prisonnier AS Photo_du_prisonnier,
+                                        p.Statut AS Statut,
+                                        i.Nom_de_l_infraction AS Infraction,
+                                        c.Numero_de_cellule
+                                    FROM 
+                                        prisonnier p
+                                    JOIN 
+                                        relation_table rt ON p.ID_prisonnier = rt.ID_prisonnier
+                                    JOIN 
+                                        infractions i ON rt.ID_infraction = i.ID_infractions
+                                    JOIN 
+                                        cellules c ON rt.ID_Cellule = c.ID_cellules;";
         public Form1()
         {
             InitializeComponent();
             PrisonnierManager prisonnierManager = new PrisonnierManager("SELECT * FROM prisonnier");
             prisonniers = prisonnierManager.GetAllPrisonners();
+            PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
+            prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
+            Console.WriteLine("Debug prisonnierPlus : " + prisonniersPlus.Count);
             
         }
 
@@ -40,7 +65,7 @@ namespace ClackosProj2
             prisonniers = prisonnierManager2.GetAllPrisonners();
         }
 
-        private void CreateItem(Prisonnier prisonnier)
+        private void CreateItem(Prisonnier2 prisonnier)
         {
             int itemWidth = 150;
             int itemHeight = 200; // Adjust as needed based on image and label height
@@ -109,7 +134,7 @@ namespace ClackosProj2
             labelCount++; // Increment the count for the next item
         }
 
-        private void item_Click(Prisonnier prisonnier)
+        private void item_Click(Prisonnier2 prisonnier)
         {
             button1.Enabled = false;
             listePrisonnier.Controls.Clear();
@@ -122,6 +147,14 @@ namespace ClackosProj2
 
             detailNomPrenom.Text = prisonnier.Nom + prisonnier.Prenom;
             detailID.Text = prisonnier.ID.ToString();
+            detailAdresse.Text = prisonnier.Adresse;
+            detailEntree.Text = prisonnier.DateEntree;
+            detailSortie.Text = prisonnier.DateSortie;
+            detailGenre.Text = prisonnier.Genre;
+            detailNaissance.Text = prisonnier.DateNaissance;
+            detailInfraction.Text = prisonnier.Infraction;
+            detailCellule.Text = prisonnier.Cellule.ToString();
+
         }
 
         private int labelCount = 0; // Add this field to your class
@@ -135,7 +168,7 @@ namespace ClackosProj2
         {
             labelCount = 0;
             listePrisonnier.Controls.Clear();
-            foreach (Prisonnier prisonnier in prisonniers)
+            foreach (Prisonnier2 prisonnier in prisonniersPlus)
             {
                 CreateItem(prisonnier);
             }
@@ -143,28 +176,7 @@ namespace ClackosProj2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string customQuery = @"
-                                    SELECT 
-                                        p.ID_prisonnier,
-                                        p.Nom AS Nom,
-                                        p.Prenom AS Prenom,
-                                        p.Date_de_naissance AS Date_de_naissance,
-                                        p.Genre AS Genre,
-                                        p.Adresse AS Adresse,
-                                        p.Date_d_entree_en_prison AS Date_d_entree_en_prison,
-                                        p.Date_de_liberation_prevue AS Date_de_liberation_prevue,
-                                        p.Photo_du_prisonnier AS Photo_du_prisonnier,
-                                        p.Statut AS Statut,
-                                        i.Nom_de_l_infraction AS Infraction,
-                                        c.Numero_de_cellule
-                                    FROM 
-                                        prisonnier p
-                                    JOIN 
-                                        relation_table rt ON p.ID_prisonnier = rt.ID_prisonnier
-                                    JOIN 
-                                        infractions i ON rt.ID_infraction = i.ID_infractions
-                                    JOIN 
-                                        cellules c ON rt.ID_Cellule = c.ID_cellules;";
+           
             PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
             prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
         }
