@@ -20,8 +20,8 @@ namespace ClackosProj2
     public partial class Form1 : Form
     {
 
-        public List<Prisonnier2> prisonniersPlus = new List<Prisonnier2>();
-        string customQuery = @"
+        public List<Prisonnier2> prisonniers = new List<Prisonnier2>();
+        string requeteComplete = @"
                                     SELECT 
                                         p.ID_prisonnier,
                                         p.Nom AS Nom,
@@ -46,8 +46,8 @@ namespace ClackosProj2
         public Form1()
         {
             InitializeComponent();
-            PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
-            prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
+            PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(requeteComplete);
+            prisonniers = prisonnierManagerPlus.GetAllPrisonners();
             
         }
 
@@ -57,7 +57,7 @@ namespace ClackosProj2
         {
             string search = searchBox.Text;
             Console.WriteLine(search);
-            PrisonnierManagerPlus prisonnierManager2 = new PrisonnierManagerPlus(customQuery.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
+            PrisonnierManagerPlus prisonnierManager2 = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
             Console.WriteLine(prisonnierManager2.GetAllPrisonners());
             generatePrisonniers(prisonnierManager2.GetAllPrisonners());
         }
@@ -158,14 +158,14 @@ namespace ClackosProj2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            generatePrisonniers(prisonniersPlus);
+            generatePrisonniers(prisonniers);
         }
 
-        private void generatePrisonniers(List<Prisonnier2>  prisonniersPlus)
+        private void generatePrisonniers(List<Prisonnier2>  prisonniers)
         {
             labelCount = 0;
             listePrisonnier.Controls.Clear();
-            foreach (Prisonnier2 prisonnier in prisonniersPlus)
+            foreach (Prisonnier2 prisonnier in prisonniers)
             {
                 CreateItem(prisonnier);
             }
@@ -174,14 +174,14 @@ namespace ClackosProj2
         private void button2_Click(object sender, EventArgs e)
         {
            
-            PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
-            prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
+            PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(requeteComplete);
+            prisonniers = prisonnierManagerPlus.GetAllPrisonners();
         }
 
         private void CloseWindow_Click_1(object sender, EventArgs e)
         {  
             detailPrisonnierPanel.Visible = false;
-            generatePrisonniers(prisonniersPlus);
+            generatePrisonniers(prisonniers);
             button1.Enabled = true;
             
         }
