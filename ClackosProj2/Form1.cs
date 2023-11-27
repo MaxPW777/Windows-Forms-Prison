@@ -20,7 +20,6 @@ namespace ClackosProj2
     public partial class Form1 : Form
     {
 
-        public List<Prisonnier> prisonniers = new List<Prisonnier>();
         public List<Prisonnier2> prisonniersPlus = new List<Prisonnier2>();
         string customQuery = @"
                                     SELECT 
@@ -47,11 +46,8 @@ namespace ClackosProj2
         public Form1()
         {
             InitializeComponent();
-            PrisonnierManager prisonnierManager = new PrisonnierManager("SELECT * FROM prisonnier");
-            prisonniers = prisonnierManager.GetAllPrisonners();
             PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(customQuery);
             prisonniersPlus = prisonnierManagerPlus.GetAllPrisonners();
-            Console.WriteLine("Debug prisonnierPlus : " + prisonniersPlus.Count);
             
         }
 
@@ -61,13 +57,14 @@ namespace ClackosProj2
         {
             string search = searchBox.Text;
             Console.WriteLine(search);
-            PrisonnierManager prisonnierManager2 = new PrisonnierManager("SELECT * FROM prisonnier WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
-            prisonniers = prisonnierManager2.GetAllPrisonners();
+            PrisonnierManagerPlus prisonnierManager2 = new PrisonnierManagerPlus(customQuery.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
+            Console.WriteLine(prisonnierManager2.GetAllPrisonners());
+            generatePrisonniers(prisonnierManager2.GetAllPrisonners());
         }
 
         private void CreateItem(Prisonnier2 prisonnier)
         {
-            int itemWidth = 150;
+            int itemWidth = 150; // Adjust as needed based on image and label width
             int itemHeight = 200; // Adjust as needed based on image and label height
 
             // Create a new Panel for each item
@@ -161,10 +158,10 @@ namespace ClackosProj2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            generatePrisonniers();
+            generatePrisonniers(prisonniersPlus);
         }
 
-        private void generatePrisonniers()
+        private void generatePrisonniers(List<Prisonnier2>  prisonniersPlus)
         {
             labelCount = 0;
             listePrisonnier.Controls.Clear();
@@ -184,16 +181,9 @@ namespace ClackosProj2
         private void CloseWindow_Click_1(object sender, EventArgs e)
         {  
             detailPrisonnierPanel.Visible = false;
-            generatePrisonniers();
+            generatePrisonniers(prisonniersPlus);
             button1.Enabled = true;
             
         }
-
-        private void detailSortie_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-
-
 }
