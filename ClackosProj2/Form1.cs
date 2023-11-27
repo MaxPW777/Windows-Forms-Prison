@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ClackosProj2
 {
@@ -48,18 +49,41 @@ namespace ClackosProj2
             InitializeComponent();
             PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(requeteComplete);
             prisonniers = prisonnierManagerPlus.GetAllPrisonners();
-            
+
         }
 
         private int textBoxCount = 0; // Add this field to your clas
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
+            //Variable de recherche
             string search = searchBox.Text;
-            Console.WriteLine(search);
-            PrisonnierManagerPlus prisonnierManager2 = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
-            Console.WriteLine(prisonnierManager2.GetAllPrisonners());
-            generatePrisonniers(prisonnierManager2.GetAllPrisonners());
+            string infraction = infractionComboBox.Text;
+            string sexe = sexeComboBox.Text;
+            string cellule = celluleComboBox.Text;
+            Console.WriteLine(infraction);
+            Console.WriteLine(sexe);
+            Console.WriteLine(cellule);
+            if (infractionComboBox.Text != "")
+            {
+                PrisonnierManagerPlus prisonnierManagerInfraction = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' AND Prenom LIKE '%" + search + "%' AND Nom_de_l_infraction LIKE '%" + infraction + "%' ");
+                generatePrisonniers(prisonnierManagerInfraction.GetAllPrisonners());
+            }
+            else if (sexeComboBox.Text != "")
+            {
+                PrisonnierManagerPlus prisonnierManagerInfraction = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' AND Prenom LIKE '%" + search + "%' AND Genre LIKE '%" + sexe + "%' ");
+                generatePrisonniers(prisonnierManagerInfraction.GetAllPrisonners());
+            }
+            else if (celluleComboBox.Text != "")
+            {
+                PrisonnierManagerPlus prisonnierManagerInfraction = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' AND Prenom LIKE '%" + search + "%' AND Numero_de_cellule LIKE '%" + cellule + "%' ");
+                generatePrisonniers(prisonnierManagerInfraction.GetAllPrisonners());
+            }
+            else
+            {
+                PrisonnierManagerPlus prisonnierManager2 = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
+                generatePrisonniers(prisonnierManager2.GetAllPrisonners());
+            }
         }
 
         private void CreateItem(Prisonnier2 prisonnier)
@@ -85,7 +109,7 @@ namespace ClackosProj2
             imageBox.BackColor = Color.Transparent;
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.BorderStyle = BorderStyle.FixedSingle;
-            
+
             imageBox.Size = new Size(150, 150); // Set the image size
             imageBox.Click += (sender, args) =>
             {
@@ -143,15 +167,15 @@ namespace ClackosProj2
             detailPhoto.SizeMode = PictureBoxSizeMode.StretchImage;
             detailPhoto.BorderStyle = BorderStyle.FixedSingle;
 
-            detailNomPrenom.Text = prisonnier.Nom +" " + prisonnier.Prenom;
+            detailNomPrenom.Text = prisonnier.Nom + " " + prisonnier.Prenom;
             detailID.Text = "ID : " + prisonnier.ID.ToString();
             detailAdresse.Text = "Adresse : " + prisonnier.Adresse;
             detailEntree.Text = "Entrée le : " + prisonnier.DateEntree.Substring(0, 10);
             detailSortie.Text = "Sortie prévue le : " + prisonnier.DateSortie.Substring(0, 10);
-            detailGenre.Text = "Sexe : " +prisonnier.Genre;
-            detailNaissance.Text = "Née le  : " + prisonnier.DateNaissance.Substring(0, 10); 
+            detailGenre.Text = "Sexe : " + prisonnier.Genre;
+            detailNaissance.Text = "Née le  : " + prisonnier.DateNaissance.Substring(0, 10);
             detailInfraction.Text = "Infraction : " + prisonnier.Infraction;
-            detailCellule.Text = "Cellule n° : " +prisonnier.Cellule.ToString();
+            detailCellule.Text = "Cellule n° : " + prisonnier.Cellule.ToString();
 
         }
 
@@ -162,7 +186,7 @@ namespace ClackosProj2
             generatePrisonniers(prisonniers);
         }
 
-        private void generatePrisonniers(List<Prisonnier2>  prisonniers)
+        private void generatePrisonniers(List<Prisonnier2> prisonniers)
         {
             labelCount = 0;
             listePrisonnier.Controls.Clear();
@@ -174,19 +198,20 @@ namespace ClackosProj2
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
             PrisonnierManagerPlus prisonnierManagerPlus = new PrisonnierManagerPlus(requeteComplete);
             prisonniers = prisonnierManagerPlus.GetAllPrisonners();
         }
 
         private void CloseWindow_Click_1(object sender, EventArgs e)
-        {  
+        {
             detailPrisonnierPanel.Visible = false;
             generatePrisonniers(prisonniers);
+            infractionComboBox.SelectedItem = null;
+            sexeComboBox.SelectedItem = null;
+            celluleComboBox.SelectedItem = null;
             button1.Enabled = true;
-            
+
         }
-
-
     }
 }
