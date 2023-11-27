@@ -55,6 +55,7 @@ namespace ClackosProj2
             this.detailSortie = new System.Windows.Forms.Label();
             this.detailNomPrenom = new System.Windows.Forms.Label();
             this.detailPhoto = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.filterPanel.SuspendLayout();
@@ -125,22 +126,24 @@ namespace ClackosProj2
             this.filterPanel.AutoSize = true;
             this.filterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterPanel.Controls.Add(this.comboBox1);
             this.filterPanel.Controls.Add(this.button1);
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.filterPanel.Location = new System.Drawing.Point(0, 60);
-            this.filterPanel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(8);
             this.filterPanel.MinimumSize = new System.Drawing.Size(227, 2);
             this.filterPanel.Name = "filterPanel";
+            this.filterPanel.Padding = new System.Windows.Forms.Padding(8);
             this.filterPanel.Size = new System.Drawing.Size(227, 931);
             this.filterPanel.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 864);
+            this.button1.Location = new System.Drawing.Point(8, 856);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 65);
+            this.button1.Size = new System.Drawing.Size(209, 65);
             this.button1.TabIndex = 0;
             this.button1.Text = "Generer Prisonniers";
             this.button1.UseVisualStyleBackColor = true;
@@ -335,6 +338,23 @@ namespace ClackosProj2
             this.detailPhoto.TabStop = false;
             this.detailPhoto.WaitOnLoad = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Vol",
+            "Fraude",
+            "Harcelement",
+            "Mes Couilles"});
+            this.comboBox1.Location = new System.Drawing.Point(8, 8);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(209, 28);
+            this.comboBox1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -383,6 +403,7 @@ namespace ClackosProj2
         private Label detailNaissance;
         private Label detailInfraction;
         private Button CloseWindow;
+        private ComboBox comboBox1;
     }
 }
 

@@ -126,6 +126,7 @@ namespace ClackosProj2
                 item_Click(prisonnier);
             };
 
+            panel.Cursor = System.Windows.Forms.Cursors.Hand;
             listePrisonnier.Controls.Add(panel);
 
             labelCount++; // Increment the count for the next item
@@ -185,5 +186,7 @@ namespace ClackosProj2
             button1.Enabled = true;
             
         }
+
+
     }
 }
