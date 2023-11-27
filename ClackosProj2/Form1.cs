@@ -108,17 +108,23 @@ namespace ClackosProj2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AddPrisonnier addPrisonnier = new AddPrisonnier();
+            Prisonnier2 addPrisonnier = new Prisonnier2();
             addPrisonnier.Nom = textBoxNom.Text;
             addPrisonnier.Prenom = textBoxPrenom.Text;
-            addPrisonnier.DateNaissance = textBoxBirth.Text;
+            addPrisonnier.DateNaissance = DateTime.Parse(textBoxBirth.Text);
             addPrisonnier.Genre = textBoxGender.Text;
             addPrisonnier.Adresse = textBoxAdress.Text;
-            addPrisonnier.DateEntree = textBoxEntry.Text;
-            addPrisonnier.DateSortie = textBoxExit.Text;
+            addPrisonnier.DateEntree = DateTime.Parse(textBoxEntry.Text);
+            addPrisonnier.DateSortie = DateTime.Parse(textBoxExit.Text);
             addPrisonnier.Photo = textBoxPhoto.Text;
             addPrisonnier.Statut = textBoxStatus.Text;
-            Console.WriteLine(addPrisonnier.Nom);
+            addPrisonnier.Infraction = InfractionBox.Text;
+            addPrisonnier.Detail = textBoxDetail.Text;
+            addPrisonnier.Peine = textBoxPeine.Text;
+            addPrisonnier.Cellule = int.Parse(BoxCellules.Text);
+            Console.WriteLine(addPrisonnier.Infraction);
+            PrisonnierManagerPlus newPrisonner = new PrisonnierManagerPlus();
+            newPrisonner.AddToDatabase(addPrisonnier);
         }
     }
 }

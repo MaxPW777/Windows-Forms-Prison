@@ -98,7 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPrisonnier.cs" />
     <Compile Include="PrisonnierManagerPlus.cs" />
     <Compile Include="Prisonnier2.cs" />
     <Compile Include="PrisonnierManager.cs" />

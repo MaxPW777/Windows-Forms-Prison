@@ -35,11 +35,11 @@ public class PrisonnierManager
                         int ID = reader.GetInt32("ID_prisonnier");
                         string photo = reader.GetString("Photo_du_prisonnier");
                         string adresse = reader.GetString("Adresse");
-                        string dateEntree = reader.GetString("Date_d_entree_en_prison");
-                        string dateSortie = reader.GetString("Date_de_liberation_prevue");
+                        DateTime dateEntree = reader.GetDateTime("Date_d_entree_en_prison");
+                        DateTime dateSortie = reader.GetDateTime("Date_de_liberation_prevue");
                         string genre = reader.GetString("Genre");
                         string statut = reader.GetString("Statut");
-                        string dateNaissance = reader.GetString("Date_de_naissance");
+                        DateTime dateNaissance = reader.GetDateTime("Date_de_naissance");
                         //string infraction = reader.IsDBNull(reader.GetOrdinal("Infraction")) ? null : reader.GetString("Infraction");
                         //int? cellule = reader.IsDBNull(reader.GetOrdinal("Numero_de_cellule")) ? (int?)null : reader.GetInt32("Numero_de_cellule");
 
