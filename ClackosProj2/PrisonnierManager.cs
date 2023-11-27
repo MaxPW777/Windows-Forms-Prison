@@ -67,7 +67,7 @@ public class PrisonnierManager
             }
             foreach (Prisonnier prisonnier in prisonniers)
             {
-                Console.WriteLine($"Nom: {prisonnier.Nom}, ID: {prisonnier.ID}, Prénom: {prisonnier.Prenom}, Photo: {prisonnier.Photo}, Adresse: {prisonnier.Adresse}, Date d'entrée: {prisonnier.DateEntree}, Date de sortie: {prisonnier.DateSortie}, Genre: {prisonnier.Genre}, Statut: {prisonnier.Statut}, Date de naissance: {prisonnier.DateNaissance}");
+                //Console.WriteLine($"Nom: {prisonnier.Nom}, ID: {prisonnier.ID}, Prénom: {prisonnier.Prenom}, Photo: {prisonnier.Photo}, Adresse: {prisonnier.Adresse}, Date d'entrée: {prisonnier.DateEntree}, Date de sortie: {prisonnier.DateSortie}, Genre: {prisonnier.Genre}, Statut: {prisonnier.Statut}, Date de naissance: {prisonnier.DateNaissance}");
             }
         }
         return prisonniers;

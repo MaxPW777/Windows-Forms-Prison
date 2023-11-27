@@ -72,6 +72,7 @@ public class PrisonnierManagerPlus
             }
             foreach (Prisonnier2 prisonnier in prisonniers)
             {
+                //Debug
                 Console.WriteLine($"Nom: {prisonnier.Nom}, ID: {prisonnier.ID}, Prénom: {prisonnier.Prenom}, Photo: {prisonnier.Photo}, Adresse: {prisonnier.Adresse}, Date d'entrée: {prisonnier.DateEntree}, Date de sortie: {prisonnier.DateSortie}, Genre: {prisonnier.Genre}, Statut: {prisonnier.Statut}, Date de naissance: {prisonnier.DateNaissance}, Infraction : {prisonnier.Infraction}, Cellule : {prisonnier.Cellule}");
             }
         }
