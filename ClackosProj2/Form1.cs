@@ -56,35 +56,39 @@ namespace ClackosProj2
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            //Variable de recherche
+            // Variable de recherche
             string search = searchBox.Text;
             string infraction = infractionComboBox.Text;
             string sexe = sexeComboBox.Text;
             string cellule = celluleComboBox.Text;
-            Console.WriteLine(infraction);
-            Console.WriteLine(sexe);
-            Console.WriteLine(cellule);
-            if (infractionComboBox.Text != "")
+
+            // Recherche de base
+            string baseQuery = requeteComplete.Replace(";", " ") + "WHERE (Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%')";
+
+            // Check and append additional filters
+            if (!string.IsNullOrEmpty(infraction))
             {
-                PrisonnierManagerPlus prisonnierManagerInfraction = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' AND Prenom LIKE '%" + search + "%' AND Nom_de_l_infraction LIKE '%" + infraction + "%' ");
-                generatePrisonniers(prisonnierManagerInfraction.GetAllPrisonners());
+                baseQuery += " AND Nom_de_l_infraction LIKE '%" + infraction + "%'";
             }
-            else if (sexeComboBox.Text != "")
+
+            if (!string.IsNullOrEmpty(sexe))
             {
-                PrisonnierManagerPlus prisonnierManagerInfraction = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' AND Prenom LIKE '%" + search + "%' AND Genre LIKE '%" + sexe + "%' ");
-                generatePrisonniers(prisonnierManagerInfraction.GetAllPrisonners());
+                baseQuery += " AND Genre LIKE '%" + sexe + "%'";
             }
-            else if (celluleComboBox.Text != "")
+
+            if (!string.IsNullOrEmpty(cellule))
             {
-                PrisonnierManagerPlus prisonnierManagerInfraction = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' AND Prenom LIKE '%" + search + "%' AND Numero_de_cellule LIKE '%" + cellule + "%' ");
-                generatePrisonniers(prisonnierManagerInfraction.GetAllPrisonners());
+                baseQuery += " AND Numero_de_cellule LIKE '%" + cellule + "%'";
             }
-            else
-            {
-                PrisonnierManagerPlus prisonnierManager2 = new PrisonnierManagerPlus(requeteComplete.Replace(";", " ") + "WHERE Nom LIKE '%" + search + "%' OR Prenom LIKE '%" + search + "%'");
-                generatePrisonniers(prisonnierManager2.GetAllPrisonners());
-            }
+
+            // Create the PrisonnierManagerPlus with the dynamic query
+            PrisonnierManagerPlus prisonnierManagerFiltre = new PrisonnierManagerPlus(baseQuery);
+            generatePrisonniers(prisonnierManagerFiltre.GetAllPrisonners());
+            infractionComboBox.SelectedItem = null;
+            sexeComboBox.SelectedItem = null;
+            celluleComboBox.SelectedItem = null;
         }
+
 
         private void CreateItem(Prisonnier2 prisonnier)
         {
